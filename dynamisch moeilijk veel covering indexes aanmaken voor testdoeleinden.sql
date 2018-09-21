@@ -1,6 +1,4 @@
-use [dg_ncasso_testomgeving3];
-
-declare @tablename nvarchar(200) = 'casemanagerworkflowstatuschange'
+declare @tablename nvarchar(200) = 'persons'
 declare @columnnames nvarchar(max)
 
 set @columnnames = stuff((select ', ' + c.name as [text()]
@@ -30,7 +28,7 @@ begin
    print @thesql;
    exec sp_executesql @thesql;
    
-   set @rij = 'we zijn nu bij index nummer ' + cast(@cnt as varchar(3))
+   set @rij = 'we are at index number ' + cast(@cnt as varchar(3))
    raiserror (@rij, 0, 1) with nowait
 
    set @cnt = @cnt + 1;
